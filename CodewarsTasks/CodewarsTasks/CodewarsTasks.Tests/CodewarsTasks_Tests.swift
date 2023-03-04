@@ -26,7 +26,13 @@ final class CodewarsTasks_Tests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testGravityFlip() throws {
+    func test_quaterOfTheYear() throws {
+        XCTAssertEqual(tasks.quaterOfTheYear(of: 3), 1)
+        XCTAssertEqual(tasks.quaterOfTheYear(of: 8), 3)
+        XCTAssertEqual(tasks.quaterOfTheYear(of: 11), 4)
+    }
+    
+    func test_gravityFlip() throws {
         XCTAssertEqual(tasks.gravityFlip("R", [3, 2, 1, 2]), [1, 2, 2, 3])
         XCTAssertEqual(tasks.gravityFlip("L", [1, 4, 5, 3, 5]), [5, 5, 4, 3, 1])
     }
