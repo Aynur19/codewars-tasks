@@ -26,6 +26,14 @@ final class CodewarsTasks_Tests: XCTestCase {
         try super.tearDownWithError()
     }
     
+    
+    func test_countTheDigit() throws {
+        XCTAssertEqual(tasks.countTheDigit(5750, 0), 4700)
+        XCTAssertEqual(tasks.countTheDigit(11011, 2), 9481)
+        XCTAssertEqual(tasks.countTheDigit(12224, 8), 7733)
+        XCTAssertEqual(tasks.countTheDigit(11549, 1), 11905)
+    }
+    
     func test_disemvowelTrolls() throws {
         XCTAssertEqual(tasks.disemvowelTrolls("This website is for losers LOL!"), "Ths wbst s fr lsrs LL!")
         XCTAssertEqual(tasks.disemvowelTrolls("No offense but,\nYour writing is among the worst I've ever read"),

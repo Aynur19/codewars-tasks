@@ -9,6 +9,23 @@ import Foundation
 
 class Tasks {
     
+    func countTheDigit(_ n: Int, _ d: Int) -> Int {
+        var count = 0
+        let digit = Character("\(d)")
+        
+        if d == 0 || d == 1 {
+            count += 1
+        }
+    
+        if n > 1 {
+            for i in 2...n {
+                count += "\(i * i)".split(separator: digit, omittingEmptySubsequences: false).count - 1
+            }
+        }
+        
+        return count
+    }
+    
     func disemvowelTrolls(_ s: String) -> String {
         var phrase = s
         let vowels: Set<Character> = ["A", "a", "E", "e", "I", "i", "O", "o", "U", "u"]
@@ -43,3 +60,6 @@ class Tasks {
         return direction == "R" ? a.sorted() : a.sorted(by: >)
     }
 }
+
+
+

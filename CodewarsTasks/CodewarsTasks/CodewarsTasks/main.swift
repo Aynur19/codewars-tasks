@@ -7,5 +7,5 @@
 
 import Foundation
 
-
+var tasks = Tasks()
 
