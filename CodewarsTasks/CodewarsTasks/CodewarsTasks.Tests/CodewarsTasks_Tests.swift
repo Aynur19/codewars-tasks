@@ -26,6 +26,32 @@ final class CodewarsTasks_Tests: XCTestCase {
         try super.tearDownWithError()
     }
     
+    func test_disemvowelTrolls() throws {
+        XCTAssertEqual(tasks.disemvowelTrolls("This website is for losers LOL!"), "Ths wbst s fr lsrs LL!")
+        XCTAssertEqual(tasks.disemvowelTrolls("No offense but,\nYour writing is among the worst I've ever read"),
+                       "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+        XCTAssertEqual(tasks.disemvowelTrolls("What are you, a communist?"), "Wht r y,  cmmnst?")
+    }
+    
+    func test_wolfInSheepIsClothing() throws {
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"]),
+                       "Oi! Sheep number 2! You are about to be eaten by a wolf!",
+                       "Testing for \(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"]).")
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]),
+                       "Oi! Sheep number 5! You are about to be eaten by a wolf!",
+                       "Testing for \(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]).")
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["wolf", "sheep", "sheep", "sheep", "sheep", "sheep", "sheep"]),
+                       "Oi! Sheep number 6! You are about to be eaten by a wolf!",
+                       "Testing for \(["sheep", "sheep", "wolf"]).")
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["sheep", "wolf", "sheep"]),
+                       "Oi! Sheep number 1! You are about to be eaten by a wolf!",
+                       "Testing for \(["sheep", "wolf", "sheep"])")
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["sheep", "sheep", "wolf"]),
+                       "Pls go away and stop eating my sheep", "Testing for \(["sheep", "sheep", "wolf"]).")
+        XCTAssertEqual(tasks.wolfInSheepIsClothing(["wolf"]),
+                       "Pls go away and stop eating my sheep", "Testing for \(["wolf"]).")
+    }
+    
     func test_quaterOfTheYear() throws {
         XCTAssertEqual(tasks.quaterOfTheYear(of: 3), 1)
         XCTAssertEqual(tasks.quaterOfTheYear(of: 8), 3)
